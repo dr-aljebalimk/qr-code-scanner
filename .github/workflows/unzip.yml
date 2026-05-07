@@ -14,14 +14,14 @@ jobs:
       - name: Extract ZIP File
         run: |
           # The quotes are important because of the spaces and parentheses in your filename
-          unzip -o "qr_scanner_app (3).zip" -d .
-          rm "qr_scanner_app (3).zip"
+          unzip -o "qr_scanner_app (5).zip" -d .
+          rm "qr_scanner_app (5).zip"
 
       - name: Commit and Push
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@://github.com"
           git add .
-          git commit -m "Extracted qr_scanner_app (3).zip content"
+          git commit -m "Extracted qr_scanner_app (5).zip content"
           git push
 
