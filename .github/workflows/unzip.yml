@@ -1,26 +1,27 @@
-name: Unzip Files
+name: Unzip QR Scanner App
 on:
-  workflow_dispatch: # Allows you to run this manually from the "Actions" tab
+  workflow_dispatch: # Manual trigger
 
 jobs:
   unzip:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Needed to push changes back to the repo
+      contents: write
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Extract ZIP File
         run: |
-          # Replace 'your-file.zip' with your actual filename
-          unzip -o your-file.zip -d ./extracted_folder
-          rm your-file.zip
+          # The quotes are important because of the spaces and parentheses in your filename
+          unzip -o "qr_scanner_app (3).zip" -d .
+          rm "qr_scanner_app (3).zip"
 
       - name: Commit and Push
         run: |
           git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.email "github-actions[bot]@://github.com"
           git add .
-          git commit -m "Unzipped files from ZIP archive"
+          git commit -m "Extracted qr_scanner_app (3).zip content"
           git push
+
